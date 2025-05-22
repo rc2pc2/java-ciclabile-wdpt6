@@ -9,9 +9,16 @@ public class Main {
         
         Ciclabile iteratore = new Ciclabile();
 
-        // System.out.println(Arrays.toString(arrayInteri));
+        System.out.println(Arrays.toString(arrayInteri));
 
         System.out.println(iteratore.getIndiceCorrente());
+
+        try  {
+            System.out.println(iteratore.getElementoSuccessivo());
+        } catch (Exception eccezione){
+            System.out.println("Problemuzzo: " + eccezione.getMessage());
+        }
+
         System.out.println(Arrays.toString(iteratore.getInteri()));
 
         iteratore.addElemento(44);
@@ -24,7 +31,13 @@ public class Main {
 
 
         while (iteratore.hasAncoraElementi()){
-            System.out.println("Elemento al posto: " + (iteratore.getIndiceCorrente() + 1) + ", con valore: " + iteratore.getElementoSuccessivo());
+            try {
+                System.out.println("Elemento al posto: " + (iteratore.getIndiceCorrente() + 1) + ", con valore: " + iteratore.getElementoSuccessivo());
+            } catch (Exception eccezione){
+                System.out.println(eccezione.getMessage());
+            } finally { // ^ IN OGNI CASO esegui questo blocco
+                System.out.println("fine esecuzione");
+            }
         }
 
     
